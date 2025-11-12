@@ -23,7 +23,7 @@ app = FastAPI()
 temp_folder = pathlib.Path.home() / "temp"
 pathlib.Path(temp_folder).mkdir(parents=True, exist_ok=True)
 # print("Loading history")
-# history_path = f"{pathlib.Path(__file__).parent.resolve()}/app/data/magnetics.ndjson"
+# history_path = f"{pathlib.Path(__file__).parent.resolve()}/data/magnetics.ndjson"
 # results = PyMKF.load_magnetics_from_file(history_path, True)
 # print(f"History loaded: {results} designs")
 
@@ -123,7 +123,6 @@ async def root():
 
 @app.post("/create_simulation_from_mas", include_in_schema=False)
 async def create_magnetic_simulationion_from_mas(request: Request):
-    print("Mierda 0")
     json = await request.json()
 
     mas = json["mas"]
